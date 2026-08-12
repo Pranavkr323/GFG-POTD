@@ -8,7 +8,7 @@ This repository contains my daily DSA practice, with each solution organized by 
 
 ```text
 GFG-POTD/
-├── 2026-08-11.py
-├── 2026-08-12.py
-├── 2026-08-13.py
+├── 11_Aug_2026.py
+├── 12_Aug_2026.py
+├── 13_Aug_2026.py
 └── ...

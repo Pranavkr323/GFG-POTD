@@ -1,4 +1,4 @@
-# GFG POTD - 2026-08-18
+# GFG POTD - 2026-08-17
 # Snake and Ladder Problem
 # Approach: BFS
 

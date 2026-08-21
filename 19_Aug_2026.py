@@ -1,33 +1,29 @@
 # GFG POTD - 2026-08-19
-# Node and Ancestor Max Diff
-# Approach: KMP (LPS) + Greedy Compression
+# Triplets with Sum in Range
+# Approach: Sorting
 
-''' Structure of Binary Tree Node
-class Node:
-    def __init__(self,val):
-        self.data = val
-        self.left = None
-        self.right = None
-'''
 class Solution:
-    def maxDiff(self, root):
-        # Code here 
-        ans = float('-inf')
+   
+    def countTriplets(self, arr: list[int], l: int, r: int) -> int:
+        arr.sort()
+        n = len(arr)
 
-        def dfs(node, max_ancestor):
-            nonlocal ans
+        def count(x):
+            ans = 0
 
-            if not node:
-                return
+            for i in range(n - 2):
+                left = i + 1
+                right = n - 1
 
-            ans = max(ans, max_ancestor - node.data)
+                while left < right:
+                    total = arr[i] + arr[left] + arr[right]
 
-            max_ancestor = max(max_ancestor, node.data)
+                    if total <= x:
+                        ans += right - left
+                        left += 1
+                    else:
+                        right -= 1
 
-            dfs(node.left, max_ancestor)
-            dfs(node.right, max_ancestor)
+            return ans
 
-        dfs(root.left, root.data)
-        dfs(root.right, root.data)
-
-        return ans
+        return count(r) - count(l - 1)
